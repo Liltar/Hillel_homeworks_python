@@ -9,20 +9,24 @@
 # Программа должна вывести целое число от 0 до 100 — номер отметки, на которой остановится Вася.
 
 # speed
+import sys
 v = input('Enter speed: ')
 if int(v) > 0:
     pass
 elif int(v) < 0:
-    print('Wrong way!')
+    sys.exit('Wrong way!')
 elif int(v) == 0:
-    print('Keep moving!')
+    sys.exit('Keep moving!')
 
 # time
 t = input('Enter time: ')
 if int(t) > 0:
     pass
 elif int(t) <= 0:
-    print('TIME PARADOX')
+    sys.exit('TIME PARADOX')
 
 mark = int(v) * int(t)
-print('The number of the mark at which bicyclist will stop is', mark)
+if mark > 0 and mark <= 100:
+    print('The number of the mark at which bicyclist will stop is', mark)
+else:
+    sys.exit('No way!')
