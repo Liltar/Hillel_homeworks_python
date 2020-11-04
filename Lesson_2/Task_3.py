@@ -25,6 +25,7 @@ if int(t) > 0:
 elif int(t) <= 0:
     sys.exit('TIME PARADOX')
 
+# mark
 mark = int(v) * int(t)
 if mark > 0 and mark <= 100:
     print('The number of the mark at which bicyclist will stop is', mark)
