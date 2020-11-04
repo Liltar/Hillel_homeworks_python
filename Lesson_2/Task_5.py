@@ -15,6 +15,7 @@
 
 some_input = input('Enter an integer: ')
 try:
+# if input is an integer
     val = int(some_input)
     if val > 0:
         print('sign(x) = 1')
@@ -22,9 +23,12 @@ try:
         print('sign(x) = -1')
     elif val == 0:
         print('sign(x) = 0')
+# if input is not an integer
 except ValueError:
+# if input is a float
     try:
         val = float(some_input)
         print('Input is a float')
+# if input is a string
     except ValueError:
         print('Input is a string')
