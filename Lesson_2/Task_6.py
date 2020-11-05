@@ -16,7 +16,12 @@
 
 some_list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 x = input('Enter an integer: ')
-if int(x) in some_list or -int(x) in some_list:
+if abs(input('Enter an integer: ') in some_list:
     print(x, 'is in a list')
 else:
     print(x, 'is not in a list')
+
+# if abs(float(input('x = '))) in range(10, 101, 10):
+#    print('ok')
+# else:
+#    print('Not ok')
