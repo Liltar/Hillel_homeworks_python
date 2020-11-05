@@ -1,15 +1,15 @@
 # 6. Ввести с клавиатуры два целых числа: x и y
-x = 9
-y = 4
+x = int(input('Enter a first integer: '))
+y = int(input('Enter a second integer: '))
 #
 #    - Вывести на экран консоли оба числа используя только один вызов print()
-print(x,';', y)
+print(x,';',y)
 #
 #    - Вычислить сумму чисел
-print(x + y)
+print('Sum is', x + y)
 #    - Выполнить целочисленное деление
-print(x // y)
+print('Integer division result is', x // y)
 #    - Найти остаток
-print(x % y)
+print('Residue of division is', x % y)
 #    - Вычислить степень числа: x^y
-print(x ** y)
+print('Resilt of raising is', x ** y)
