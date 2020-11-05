@@ -2,5 +2,4 @@
 #  введенное имя и знаки препинания по образцу:
 #
 # Hello, Kitty!
-name = input('Enter your name:')
-print('Hello, ' + name)
+print('Hello, ' + input('Enter your name:'))
