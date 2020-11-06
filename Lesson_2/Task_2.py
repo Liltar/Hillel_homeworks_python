@@ -20,8 +20,8 @@
 some_input = input('       Please enter an integer number: ')
 try:
       val = int(some_input)
-      print('       The next number for the number', val, 'is', val + 1, '\n',\
-      '      The previous number for the number', val, 'is', val - 1)
+      print(f'       The next number for the number {val} is {val + 1} '
+            f'\n       The previous number for the number {val} is {val - 1}')
 except ValueError:
       try:
             val = float(some_input)
