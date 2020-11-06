@@ -19,12 +19,12 @@
 
 some_input = input('       Please enter an integer number: ')
 try:
-      val = int(some_input)
-      print(f'       The next number for the number {val} is {val + 1} '
-            f'\n       The previous number for the number {val} is {val - 1}')
+    val = int(some_input)
+    print(f'       The next number for the number {val} is {val + 1} '
+          f'\n       The previous number for the number {val} is {val - 1}')
 except ValueError:
-      try:
-            val = float(some_input)
-            print('Input is a float')
-      except ValueError:
-            print('Input is not an ingteger, it\'s a string')
+    try:
+        val = float(some_input)
+        print('Input is a float')
+    except ValueError:
+        print('Input is not an ingteger, it\'s a string')

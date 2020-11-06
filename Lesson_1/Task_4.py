@@ -1,10 +1,8 @@
 # 4. Вывести на консоль своё имя, нарисованное 'звёздочками'
-t = '*********\n    *\n    *\n    *\n    *\n    *\n    *\n    *\n    *\n'
-a = '       *\n*              *\n*              *\n*              *\n*              *\n****************/' \
-    '\n*              *\n*              *\n*              *'
-r = ''
-
-s = ''
+getName = input('Enter your name: ')
+for letter in getName:
+   getName = getName.replace(letter, "*")
+print('\nResult is: ', getName)
 
 # python -m pip install -U pip
 # установка менеджера пакетов
@@ -12,5 +10,6 @@ s = ''
 # pip install art
 # установка модуля art
 #
-from art import *
-tprint('taras', font='asterisk')
+#from art import *
+#print('taras', font='asterisk')
+
