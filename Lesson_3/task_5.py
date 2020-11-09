@@ -6,22 +6,14 @@ import random
 programm_number = random.randint(0, 10)
 attempts = 0
 while attempts < 3:
-    attempts = 1
     user_guess = (input('Enter a number from 1 to 10: '))
+    attempts += 1
     if int(user_guess) == programm_number:
         print('You won!')
+        break
     else:
         print('Try again!')
-        attempts = 2
-        user_guess = (input('Enter a number from 1 to 10: '))
-        if int(user_guess) == programm_number:
-            print('You won!')
-        else:
-            print('Try again!')
-            attempts = 3
-            user_guess = (input('Enter a number from 1 to 10: '))
-            if int(user_guess) == programm_number:
-                print('You won!')
-            else:
-                print('You lose!')
+    attempts += 1
+else:
+    print('You lose!')
 print(f'The answer is {programm_number}')
