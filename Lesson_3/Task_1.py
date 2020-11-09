@@ -1,5 +1,5 @@
-_list = [1, 2, 3]
-another_list = _list.copy()
-for element in _list:
-    _list.append(element)
-print(_list)
+some_input = (input('Enter a 3-digit number: '))
+sum_of_digits = 0
+for i in str(int(some_input)):
+    sum_of_digits += int(i)
+print(sum_of_digits)
