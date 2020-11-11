@@ -3,12 +3,12 @@
 # Дать пользователю три попытки ;)
 
 import random
-programm_number = random.randint(0, 10)
+program_number = random.randint(0, 10)
 attempts = 0
 while attempts < 3:
     user_guess = (input('Enter a number from 1 to 10: '))
     attempts += 1
-    if int(user_guess) == programm_number:
+    if int(user_guess) == program_number:
         print('You won!')
         break
     else:
@@ -16,4 +16,4 @@ while attempts < 3:
     attempts += 1
 else:
     print('You lose!')
-print(f'The answer is {programm_number}')
+print(f'The answer is {program_number}')
