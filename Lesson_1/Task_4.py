@@ -1,8 +1,10 @@
 # 4. Вывести на консоль своё имя, нарисованное 'звёздочками'
-getName = input('Enter your name: ')
-for letter in getName:
-   getName = getName.replace(letter, "*")
-print('\nResult is: ', getName)
+# getName = input('Enter your name: ')
+# for letter in getName:
+#    getName = getName.replace(letter, "*")
+# print('\nResult is: ', getName)
+
+print('*' * 10, '*')
 
 # python -m pip install -U pip
 # установка менеджера пакетов
