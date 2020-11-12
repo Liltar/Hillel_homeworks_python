@@ -24,7 +24,9 @@ while True:
     next_val = abs(int(input('Enter a number: ')))
     list_to_collect.append(next_val)
     if next_val == 0:
+        # - количество введённых чисел (завершающий 0 не считается)
+        print(len(list_to_collect) - 1)
+        # - их сумму
+        print(sum(list_to_collect))
+
         break
-print(list_to_collect)
-# if input('Enter a number: ') == 0:
-#     break
