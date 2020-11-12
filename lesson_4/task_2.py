@@ -19,9 +19,12 @@
 #
 # - определите, сколько элементов этой последовательности равны ее наибольшему элементу
 
-
-
+list_to_collect = []
 while True:
-    i = int(input('Enter a number: '))
-    if int(i) == 0:
+    next_val = abs(int(input('Enter a number: ')))
+    list_to_collect.append(next_val)
+    if next_val == 0:
         break
+print(list_to_collect)
+# if input('Enter a number: ') == 0:
+#     break
