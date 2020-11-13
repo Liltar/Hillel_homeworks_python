@@ -22,11 +22,19 @@
 list_to_collect = []
 while True:
     next_val = abs(int(input('Enter a number: ')))
-    list_to_collect.append(next_val)
     if next_val == 0:
-        # - количество введённых чисел (завершающий 0 не считается)
-        print(len(list_to_collect) - 1)
-        # - их сумму
-        print(sum(list_to_collect))
-
         break
+    list_to_collect.append(next_val)
+# - количество введённых чисел (завершающий 0 не считается)
+numbers_count = len(list_to_collect)
+# - их сумму
+numbers_sum = sum(list_to_collect)
+# - произведение
+numbers_multiply = 1
+for i in list_to_collect:
+    numbers_multiply *= i
+# - среднее арифметическое (не считая завершающего числа 0)
+numbers_avg = numbers_multiply / numbers_count
+# - определить значение и порядковый номер наибольшего элемента последовательности
+for i in list_to_collect:
+    if
