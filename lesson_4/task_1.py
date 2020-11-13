@@ -29,3 +29,4 @@ i = 1
 while first_day_dist < last_day_dist:
     first_day_dist *= 1.1
     i += 1
+print(i)
