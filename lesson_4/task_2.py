@@ -49,19 +49,14 @@ def calculate(list_to_collect):
             second_max_number = value
         if value % 2 == 0:
             even_numbers += 1
-        if value + last_element == max_number:
-            max_elements += 1
         else:
             odd_numbers += 1
+        if value + last_element == max_number:
+            max_elements += 1
         last_element = value
-    numbers_avg = multiply_numbers / count_numbers
+    numbers_avg = sum_numbers / count_numbers
     return (count_numbers, sum_numbers, multiply_numbers, numbers_avg,
             max_number, max_number_index, even_numbers, odd_numbers,
             second_max_number, max_elements)
 
 print(calculate(list_to_collect))
-
-# # - определить значение и порядковый номер наибольшего элемента последовательности
-# for value in list_to_collect:
-#     if
-
