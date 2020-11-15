@@ -11,5 +11,5 @@ print(name)
 # pip install art
 # установка модуля art
 #
-#from art import *
-#print('taras', font='asterisk')
+# from art import *
+# print('taras', font='asterisk')
