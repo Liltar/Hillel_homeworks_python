@@ -3,9 +3,12 @@
 # for letter in getName:
 #    getName = getName.replace(letter, "*")
 # print('\nResult is: ', getName)
-
-print('*' * 10, '*')
-
+name = (f'**********    *              * *******              *              * * * * * '
+        f'\n    *      *     *           *       *          *        *         * '
+        f'\n    *    ************        *********         ************        *'
+        f'\n    *   *             *      *               *              *      *'
+        f'\n    *  *                *    *              *                 *    * * * * *')
+print(name)
 # python -m pip install -U pip
 # установка менеджера пакетов
 #
