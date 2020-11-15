@@ -12,6 +12,8 @@
 #    1234
 #
 #    12345
-
-for i in range(int(input('Enter a number: '))):
-    print(i)
+enter_number = int(input('Enter a number: '))
+for i in range(1, enter_number + 1):
+    for element in range(1, i + 1):
+        print(element, sep='', end='')
+    print()
