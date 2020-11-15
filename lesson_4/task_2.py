@@ -26,37 +26,56 @@ while True:
         break
     list_to_collect.append(next_val)
 
-
-def calculate(list_to_collect):
-    count_numbers = 0
-    sum_numbers = 0
-    multiply_numbers = 1
-    max_number = 0
-    max_number_index = 0
-    even_numbers = 0
-    odd_numbers = 0
-    second_max_number = 0
-    last_element = 0
-    max_elements = 0
+def count_calculation(list_to_collect):
     for i, value in enumerate(list_to_collect):
+        count_numbers = 0
         count_numbers += 1
+        return count_numbers
+def sum_calculation(list_to_collect):
+    for i, value in enumerate(list_to_collect):
+        sum_numbers = 0
         sum_numbers += value
+        return sum_numbers
+def multiply_calculation(list_to_collect):
+    for i, value in enumerate(list_to_collect):
+        multiply_numbers = 1
         multiply_numbers *= value
+        return multiply_numbers
+def max_number_value_and_index_calculation(list_to_collect):
+    for i, value in enumerate(list_to_collect):
+        max_number = 0
+        if value > max_number:
+            max_number = value
+            max_number_index = i
+    return max_number, max_number_index
+def even_numbers_calculation(list_to_collect):
+    for i, value in enumerate(list_to_collect):
+        even_numbers = 0
+        odd_numbers = 0
+        if value % 2 == 0:
+            even_numbers += 1
+        else:
+            odd_numbers += 1
+def second_max_number_calculation(list_to_collect): # не понимаю, почему не работает
+    for i, value in enumerate(list_to_collect):
+        max_number = 0
+        second_max_number = 0
         if value > max_number:
             max_number = value
             max_number_index = i
         if value < max_number:
             second_max_number = value
-        if value % 2 == 0:
-            even_numbers += 1
-        else:
-            odd_numbers += 1
+        return second_max_number
+def max_elements_calculation(list_to_collect): # не понимаю, почему не работает [2]
+    for i, value in enumerate(list_to_collect):
+        max_number = 0
+        last_element = 0
+        max_elements = 0
+        if value > max_number:
+            max_number = value
+            max_number_index = i
         if value + last_element == max_number:
             max_elements += 1
         last_element = value
-    numbers_avg = sum_numbers / count_numbers
-    return (count_numbers, sum_numbers, multiply_numbers, numbers_avg,
-            max_number, max_number_index, even_numbers, odd_numbers,
-            second_max_number, max_elements)
-
-print(calculate(list_to_collect))
+        return max_elements
+print(max_number_value_and_index_calculation(list_to_collect))
