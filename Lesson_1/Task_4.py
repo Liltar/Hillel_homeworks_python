@@ -13,4 +13,3 @@ print(name)
 #
 #from art import *
 #print('taras', font='asterisk')
-
