@@ -26,21 +26,28 @@ while True:
         break
     list_to_collect.append(next_val)
 
+
 def count_calculation(list_to_collect):
     for i, value in enumerate(list_to_collect):
         count_numbers = 0
         count_numbers += 1
         return count_numbers
+
+
 def sum_calculation(list_to_collect):
     for i, value in enumerate(list_to_collect):
         sum_numbers = 0
         sum_numbers += value
         return sum_numbers
+
+
 def multiply_calculation(list_to_collect):
     for i, value in enumerate(list_to_collect):
         multiply_numbers = 1
         multiply_numbers *= value
         return multiply_numbers
+
+
 def max_number_value_and_index_calculation(list_to_collect):
     for i, value in enumerate(list_to_collect):
         max_number = 0
@@ -48,6 +55,8 @@ def max_number_value_and_index_calculation(list_to_collect):
             max_number = value
             max_number_index = i
     return max_number, max_number_index
+
+
 def even_numbers_calculation(list_to_collect):
     for i, value in enumerate(list_to_collect):
         even_numbers = 0
@@ -56,6 +65,8 @@ def even_numbers_calculation(list_to_collect):
             even_numbers += 1
         else:
             odd_numbers += 1
+
+
 def second_max_number_calculation(list_to_collect): # не понимаю, почему не работает
     for i, value in enumerate(list_to_collect):
         max_number = 0
@@ -66,6 +77,8 @@ def second_max_number_calculation(list_to_collect): # не понимаю, по�
         if value < max_number:
             second_max_number = value
         return second_max_number
+
+
 def max_elements_calculation(list_to_collect): # не понимаю, почему не работает [2]
     for i, value in enumerate(list_to_collect):
         max_number = 0
@@ -78,4 +91,12 @@ def max_elements_calculation(list_to_collect): # не понимаю, почем
             max_elements += 1
         last_element = value
         return max_elements
+
+
+print(count_calculation(list_to_collect))
+print(sum_calculation(list_to_collect))
+print(multiply_calculation(list_to_collect))
 print(max_number_value_and_index_calculation(list_to_collect))
+print(even_numbers_calculation(list_to_collect))
+print(second_max_number_calculation(list_to_collect))
+print(max_elements_calculation(list_to_collect))
