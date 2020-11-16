@@ -2,23 +2,19 @@
 some_str = input('Enter a string: ')
 
 
-def str_words_quantity(some_str):
+def str_words_quantity(any_str):
     words_number = 1
-    for i in some_str:
+    for i in any_str:
         if i == ' ':
             words_number += 1
-        else:
-            pass
     return words_number
 
 
-def str_symbol_quantity(some_str):
+def str_symbol_quantity(any_str):
     symbol_quantity = 0
-    for i in some_str:
-        if i != None:
+    for i in any_str:
+        if i is not None:
             symbol_quantity += 1
-        else:
-            pass
     return symbol_quantity
 
 
