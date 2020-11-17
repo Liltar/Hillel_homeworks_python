@@ -12,8 +12,11 @@
 #    1234
 #
 #    12345
-enter_number = int(input('Enter a number: '))
-for i in range(1, enter_number + 1):
-    for element in range(1, i + 1):
-        print(element, sep='', end='')
-    print()
+enter_number = input('Enter a number: ')
+list_1 = [str(num) for num in range(1, int(enter_number) + 1)]
+print(list_1)
+
+# for i in range(1, enter_number + 1):
+#     for element in range(1, i + 1):
+#         print(element, sep='', end='')
+#     print()
