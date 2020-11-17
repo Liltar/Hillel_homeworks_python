@@ -49,6 +49,7 @@ def odd_symbols(some_string):
 def reversed_string(some_string):
     return ''.join(reversed(some_string))
 
+
 #    h. выведите все символы строки через один в обратном порядке, начиная с последнего.
 def reversed_next_nearest_symbol(some_string):
     return some_string[::-1][::2]
