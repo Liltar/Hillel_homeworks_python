@@ -23,36 +23,36 @@ some_string = input('Enter a string: ')
 
 
 def third_symbol(some_string):
-    print(some_string[2])
+    return some_string[2]
 
 
 def penultimate_symbol(some_string):
-    print(some_string[-2])
+    return some_string[-2]
 
 
 def first_five_symbols(some_string):
-    print(some_string[0:5])
+    return some_string[0:5]
 
 
 def string_without_two_last_symbols(some_string):
-    print(some_string[:-2])
+    return some_string[:-2]
 
 
 def even_symbols(some_string):
-    print(some_string[1::2])
+    return some_string[1::2]
 
 
 def odd_symbols(some_string):
-    print(some_string[2::2])
+    return some_string[2::2]
 
 
 def reversed_string(some_string):
-    print(''.join(reversed(some_string)))
+    return ''.join(reversed(some_string))
 
 #    h. выведите все символы строки через один в обратном порядке, начиная с последнего.
 def reversed_next_nearest_symbol(some_string):
-    print(some_string[::-1][::2])
+    return some_string[::-1][::2]
 
 
 def length_of_the_string(some_string):
-    print(len(some_string))
+    return len(some_string)
