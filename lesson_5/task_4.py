@@ -3,4 +3,5 @@
 # И выведете их количество.
 
 some_list = list(range(0, 10))
-print(some_list)
+for i in some_list:
+    if i % 2 == 0:
