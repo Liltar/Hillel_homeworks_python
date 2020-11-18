@@ -12,8 +12,6 @@
 #    1234
 #
 #    12345
-
-
 enter_number = input('Enter a number: ')
 for i in range(int(enter_number) + 1):
     list_1 = ''.join([str(num) for num in range(1, int(enter_number)+ 1)])
