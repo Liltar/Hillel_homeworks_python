@@ -17,9 +17,13 @@
 import time
 
 
-def countdown():
-    time.sleep(3)
+def countdown(*args):
+    for i in range(3, 0, -1):
+        time.sleep(1)
+        print(i)
+    return args
 
+print(countdown())
 
 # def time_now():
 #     print(time_now)
