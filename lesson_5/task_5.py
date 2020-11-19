@@ -4,5 +4,15 @@
 # периметр квадрата,
 # площадь квадрата
 # и диагональ квадрата.
+side = int(input('Enter side: '))
 
-def
+
+def square(arg: int):
+    perimeter = arg * 4
+    area = arg ** 2
+    root_2 = 2 ** 0.5
+    diagonal = round(arg * root_2, 2)
+    return perimeter, area, diagonal
+
+
+print(square(side))
