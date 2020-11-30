@@ -24,4 +24,5 @@ def dict_from_list(some_list):
       new_dict = {key: value for key, value in some_list_en}
       return new_dict
 
+
 print(dict_from_list(some_list))
