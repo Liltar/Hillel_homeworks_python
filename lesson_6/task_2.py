@@ -17,13 +17,15 @@
 import time
 
 
-def countdown(*args):
-    for i in range(3, 0, -1):
-        time.sleep(1)
-        print(i)
-    return args
+def countdown(func):
+    def seconds(*args):
+        for i in range(3, 0, -1):
+            print(i)
+            time.sleep(1)
+        func(*args)
+    return seconds()
 
-print(countdown())
 
-# def time_now():
-#     print(time_now)
+@countdown
+def time_now():
+    print(time.strftime('%H:%M'))
