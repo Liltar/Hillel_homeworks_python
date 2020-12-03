@@ -8,13 +8,21 @@
 
 
 import json
+import datetime
+
+# func to count sum of seconds from list with durations of tracks as its elements
+def sum_of_seconds(total_duration=list, elements=str):
+    total_length = 0
+    for element in range(0, len(track_durations)):
+        total_length = total_length + int(track_durations[element])
+    return total_length
+
+
 with open('acdc.json', 'r') as f:
     json_text_file_acdc = f.read()
     acdc = json.loads(json_text_file_acdc)
-    i = 0
-    track_duration_1 = (acdc['album']['tracks']['track'][i]['duration'])
-    track_durations = [value for value in acdc['album']['tracks']['track'][i]['duration']]
-    print(track_duration_1)
+    track_durations = [track['duration'] for track in acdc['album']['tracks']['track']]
+    print(sum_of_seconds(track_durations))
 
 
-
+print(datetime.timedelta(0, sum_of_seconds(track_durations)))
