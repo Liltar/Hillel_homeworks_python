@@ -2,15 +2,13 @@
 #
 #   Обернуть функцию в декоратор чтобы функция вместо строки целиком вернула список слов.
 #
-any_input = input('Enter something: ')
 
 
-def input_to_list(input_return):
-    return input_return.split()
+def input_to_list_decorator(func):
+    return func().split
 
-
+@input_to_list_decorator
 def input_return():
-        return any_input
+    return input('Enter something: ')
 
-
-print(input_to_list(any_input))
+print(input_return())
