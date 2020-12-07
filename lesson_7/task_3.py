@@ -43,9 +43,9 @@ def format_value(val):
 def create_file():
     result = weather_forecast(days_number)
     with open('weather.txt', 'w') as f:
-            f.writelines(['   Date   ','    Day    ', '   Night   ', '\n'])
-            for day in result['list']:
-                f.writelines([datetime.date.fromtimestamp(day['dt']).strftime('%d-%m-%Y') + (4 * ' '),
+        f.writelines(['   Date   ', '    Day    ', '   Night   ', '\n'])
+        for day in result['list']:
+            f.writelines([datetime.date.fromtimestamp(day['dt']).strftime('%d-%m-%Y') + (4 * ' '),
                           format_value(day['temp']['day']) + (4 * ' '),
                           format_value(day['temp']['night']) + (4 * ' '), '\n'])
 
