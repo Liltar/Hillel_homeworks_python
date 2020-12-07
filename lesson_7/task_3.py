@@ -22,10 +22,12 @@ import requests
 import datetime
 
 url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
+days_number = int(input('Enter a number of days: '))
+city = input('Enter city: ')
 
 
-def weather_forecast(days=5):
-    data = {'q': 'Odesa', 'units': 'metric', 'cnt': days, 'appid': 'f9ada9efec6a3934dad5f30068fdcbb8'}
+def weather_forecast(days_number):
+    data = {'q': city, 'units': 'metric', 'cnt': days_number, 'appid': 'f9ada9efec6a3934dad5f30068fdcbb8'}
     r = requests.get(url, data)
     return r.json()
 
@@ -39,7 +41,7 @@ def format_value(val):
 
 
 def create_file():
-    result = weather_forecast()
+    result = weather_forecast(days_number)
     with open('weather.txt', 'w') as f:
             f.writelines(['   Date   ','    Day    ', '   Night   ', '\n'])
             for day in result['list']:
