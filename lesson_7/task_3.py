@@ -27,7 +27,8 @@ city = input('Enter city: ')
 
 
 def weather_forecast(days_number):
-    data = {'q': city, 'units': 'metric', 'cnt': days_number, 'appid': 'f9ada9efec6a3934dad5f30068fdcbb8'}
+    data = {'q': city, 'units': 'metric', 'cnt': days_number,
+            'appid': 'f9ada9efec6a3934dad5f30068fdcbb8'}
     r = requests.get(url, data)
     return r.json()
 
