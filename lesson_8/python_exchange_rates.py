@@ -11,6 +11,9 @@ def symbols():
     return symbols_file
 
 
+symbols_file = symbols()
+
+
 # выдаёт ошибку
 # if currency_from == '' or currency_from not in symbols_file['symbols']:
 # NameError: name 'symbols_file' is not defined
