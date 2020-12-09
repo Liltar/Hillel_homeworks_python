@@ -2,6 +2,7 @@ import requests
 import datetime
 from pprint import pprint as pp
 import json
+
 URL = 'https://api.exchangerate.host/convert'
 
 
@@ -44,12 +45,11 @@ def convert(currency_from, currency_to, amount, start_date):
     pp(result)
 
 
-if __name__ == 'python_exchange_rates':
+if __name__ == '__main__':
     import argparse
+
     arguments = argparse.ArgumentParser()
     arguments.add_argument('from')
     arguments.add_argument('to')
     arguments.add_argument('amount')
     args = arguments.parse_args()
-
-convert(currency_from, currency_to, amount, start_date)
