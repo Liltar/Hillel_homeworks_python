@@ -22,8 +22,6 @@ if currency_to == '' or currency_to not in symbols_file['symbols']:
 amount = input('Enter amount: ')
 if amount == '':
     amount = 100.00
-else:
-    amount = float(amount)
 pd = input('Please enter present day in format \'%Y-%m-%d\': ')
 start_date = datetime.datetime.strptime(pd, '%Y-%m-%d')
 if start_date != datetime.datetime.now():
