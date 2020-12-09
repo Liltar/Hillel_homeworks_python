@@ -13,27 +13,21 @@ def symbols():
 
 symbols_file = symbols()
 
-
-# выдаёт ошибку
-# if currency_from == '' or currency_from not in symbols_file['symbols']:
-# NameError: name 'symbols_file' is not defined
-
-
-def values():
-    currency_from = input('Convert from: ')
-    if currency_from == '' or currency_from not in symbols_file['symbols']:
-        currency_from = 'USD'
-    currency_to = input('Convert to: ')
-    if currency_to == '' or currency_to not in symbols_file['symbols']:
-        currency_to = 'UAH'
-    amount = float(input('Enter amount: '))
-    if amount == 0.0:
-        amount = 100.00
-    pd = input("Please enter present day in format '%Y-%m-%d': ")
-    start_date = datetime.datetime.strptime(pd, '%Y-%m-%d')
-    if start_date != datetime.datetime.now():
-        start_date = datetime.datetime.now() - datetime.timedelta(days=4)
-    return convert(currency_from, currency_to, amount, start_date)
+currency_from = input('Convert from: ')
+if currency_from == '' or currency_from not in symbols_file['symbols']:
+    currency_from = 'USD'
+currency_to = input('Convert to: ')
+if currency_to == '' or currency_to not in symbols_file['symbols']:
+    currency_to = 'UAH'
+amount = input('Enter amount: ')
+if amount == '':
+    amount = 100.00
+else:
+    amount = float(amount)
+pd = input('Please enter present day in format \'%Y-%m-%d\': ')
+start_date = datetime.datetime.strptime(pd, '%Y-%m-%d')
+if start_date != datetime.datetime.now():
+    start_date = datetime.datetime.now() - datetime.timedelta(days=4)
 
 
 def convert(currency_from, currency_to, amount, start_date):
@@ -52,8 +46,6 @@ def convert(currency_from, currency_to, amount, start_date):
     pp(result)
 
 
-values()
-
 if __name__ == 'python_exchange_rates':
     import argparse
     arguments = argparse.ArgumentParser()
@@ -61,3 +53,5 @@ if __name__ == 'python_exchange_rates':
     arguments.add_argument('to')
     arguments.add_argument('amount')
     args = arguments.parse_args()
+
+convert(currency_from, currency_to, amount, start_date)
