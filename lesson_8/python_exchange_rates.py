@@ -52,4 +52,5 @@ if __name__ == '__main__':
     arguments.add_argument('from')
     arguments.add_argument('to')
     arguments.add_argument('amount')
+    arguments.add_argument('--start_date', default=datetime.datetime.now())
     args = arguments.parse_args()
