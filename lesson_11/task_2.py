@@ -1,7 +1,8 @@
 # 2. Написать функцию которая будет частично скрывать e-mail, пример:
 #
 #   hide_email(somebody_email@gmail.com) -> em***@**il.com
-#
+
+
 def hide_email(some_string):
     index_of_at = [pos for pos, char in enumerate(some_string) if char == '@'][0]
     some_string = list(some_string)
