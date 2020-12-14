@@ -11,4 +11,3 @@ with open('task_1.txt', 'w') as file:
         file.writelines(user_input + '\n')
         if user_input == '':
             break
-    file.close()
