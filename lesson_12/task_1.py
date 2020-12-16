@@ -35,7 +35,7 @@ class BankAccount():
     def withdraw(self, sum_of_withdrawal):
         sum_of_withdrawal = float(sum_of_withdrawal)
         time_of_withdrawal = time.monotonic()
-        self.transactions.append(f'deposit of {sum_of_withdrawal} made at {time_of_withdrawal}')
+        self.transactions.append(f'withdrawal of {sum_of_withdrawal} made at {time_of_withdrawal}')
         return self.balance - sum_of_withdrawal
 
     def get_balance(self):
