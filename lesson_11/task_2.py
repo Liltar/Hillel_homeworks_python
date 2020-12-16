@@ -13,3 +13,13 @@ def hide_email(some_string):
 
 
 print(hide_email('somebody_email@gmail.com'))
+
+
+# def hide_email_1(some_string):
+#     print([some_string.find('@')])
+#     some_string = '@'.join([some_string.replace(some_string[some_string.find('@') - 3:], '***'),
+#                             some_string.replace(some_string[:len(some_string) - some_string.find('@') + 2], '**')])
+#     return some_string
+#
+#
+# print(hide_email_1('somebody_email@gmail.com'))
