@@ -12,11 +12,15 @@
 #    При изменении баланса записывать в транзакции (сумма, тип операции, текущая_дата)
 #
 #    * доп. добавить и учитывать банковские комиссии (1%)
-import uuid
 import time
+import uuid
+
 
 # какой функцией указать время события так, чтобы оно не сдвигалось каждый раз?
-# почему не прибавляет к балансу депозит?
+
+
+def commission(amount):
+    return amount * 0.01
 
 
 class BankAccount():
@@ -27,16 +31,16 @@ class BankAccount():
         self.transactions = []
 
     def make_depo(self, sum_of_depo):
-        sum_of_depo = float(sum_of_depo)
+        sum_of_depo = float(sum_of_depo) - commission(sum_of_depo)
         time_of_depo = time.monotonic()
         self.transactions.append(f'deposit of {sum_of_depo} made at {time_of_depo}')
-        return self.balance + sum_of_depo
+        self.balance += sum_of_depo
 
     def withdraw(self, sum_of_withdrawal):
-        sum_of_withdrawal = float(sum_of_withdrawal)
+        sum_of_withdrawal = float(sum_of_withdrawal) - commission(sum_of_withdrawal)
         time_of_withdrawal = time.monotonic()
         self.transactions.append(f'withdrawal of {sum_of_withdrawal} made at {time_of_withdrawal}')
-        return self.balance - sum_of_withdrawal
+        self.balance -= sum_of_withdrawal
 
     def get_balance(self):
         return self.balance
@@ -45,5 +49,4 @@ class BankAccount():
 Account = BankAccount('w', 4, 5.0, [])
 print(vars(Account))
 Account.make_depo(10.0)
-print(vars(Account))
-print()
+print(Account.get_balance())
