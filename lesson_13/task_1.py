@@ -19,7 +19,37 @@
 #    1   2         10
 #    1   3         25
 #                  и т.д.
+from random import randint
+
+
+class House:
+    def __init__(self, number):
+        self.number = number
+        self.population = randint(1, 100)
+
+
+class Street:
+    def __init__(self, number):
+        self.number = number
+        self.houses = []
+        for i in range(1, randint(5, 20)):
+            self.houses.append(House(i))
 
 class City:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
+        self.streets = []
+        self.population()
 
+    def population(self):
+        for i in range(1, randint(1, 5)):
+            self.streets.append(Street(i))
+
+    def city_data(self):
+        for street in self.streets:
+            print(f'Street # {street.number}')
+            for house in street.houses:
+                print(f'House #{house.number} - {house.population} inhabitants')
+
+my_city = City('Racoon city')
+my_city.city_data()
