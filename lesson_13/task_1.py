@@ -42,7 +42,7 @@ class City:
         self.population()
 
     def population(self):
-        for i in range(1, randint(1, 5)):
+        for i in range(1, randint(2, 5)):
             self.streets.append(Street(i))
 
     def city_data(self):
