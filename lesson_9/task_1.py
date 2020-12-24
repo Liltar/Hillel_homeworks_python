@@ -39,7 +39,7 @@ def write_in_csv(result):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Transport Registry')
-    parser.add_argument('o', help='Enter the file name incvs format')
+    parser.add_argument('o', help='Enter the file name in cvs format')
     parser.add_argument('--brand', help='Enter the brand')
     parser.add_argument('--color', help='Enter the color')
     parser.add_argument('--year', help='Enter the year make')
