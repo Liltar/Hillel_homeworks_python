@@ -21,7 +21,7 @@ def read_csv(file):
             for row in csv_file:
                 if row['BRAND'] == args_dict['brand'] and \
                     row['COLOR'] == args_dict['color'] and \
-                        row['MAKE_YEAR']  == args_dict['year']:
+                        row['MAKE_YEAR'] == args_dict['year']:
                     result.append(row)
     return write_in_csv(result)
 
