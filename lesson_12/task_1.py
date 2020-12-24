@@ -23,30 +23,27 @@ def commission(amount):
     return amount * 0.01
 
 
-class BankAccount():
-    def __init__(self, name, unique_id, balance, transactions):
+class BankAccount:
+    def __init__(self, name):
         self.name = name
-        self.unique_id = uuid.uuid1(unique_id)
-        self.balance = 0.0
+        self.unique_id = uuid.uuid1()
+        self._balance = 0.0
         self.transactions = []
 
     def make_depo(self, sum_of_depo):
         sum_of_depo = float(sum_of_depo) - commission(sum_of_depo)
         time_of_depo = time.monotonic()
         self.transactions.append(f'deposit of {sum_of_depo} made at {time_of_depo}')
-        self.balance += sum_of_depo
+        self._balance += sum_of_depo
 
     def withdraw(self, sum_of_withdrawal):
         sum_of_withdrawal = float(sum_of_withdrawal) - commission(sum_of_withdrawal)
         time_of_withdrawal = time.monotonic()
         self.transactions.append(f'withdrawal of {sum_of_withdrawal} made at {time_of_withdrawal}')
-        self.balance -= sum_of_withdrawal
-
-    def get_balance(self):
-        return self.balance
+        self._balance -= sum_of_withdrawal
 
 
-Account = BankAccount('w', 4, 5.0, [])
+Account = BankAccount('w')
 print(vars(Account))
 Account.make_depo(10.0)
-print(Account.get_balance())
+print(Account.balance)
