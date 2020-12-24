@@ -31,7 +31,7 @@ def write_in_csv(result):
     with open(file_name, 'w', newline='') as cvsresult:
         headers = ['D_REG', 'BRAND', 'MODEL', 'MAKE_YEAR', 'COLOR',
                    'N_REG_NEW']
-        csv_writer = csv.DictReader(cvsresult, fieldnames=headers)
+        csv_writer = csv.DictWriter(cvsresult, fieldnames=headers)
         csv_writer.writeheader()
         csv_writer.writerows(result)
         print(f'Writed to {file_name}')
