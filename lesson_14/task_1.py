@@ -19,6 +19,7 @@
 # *доп. Научить Store запоминать выручку(сумма проданных продуктов) и выводить баланс.
 #
 # Тип продукта может быть только coffee или tea (нельзя создать обьект с другим типом).
+import csv
 
 class Product:
     def __init__(self, name, product_type, price):
@@ -33,3 +34,14 @@ class Product:
             return 'coffee'
 
     def print_product(self):
+        print(self.name, self.product_type, self.price)
+
+
+class Store:
+    def __init__(self):
+        self.warehouse = self.import_product
+        self.transactions = []
+
+    def import_product(self):
+        with open('inventory.csv', 'r', encoding='utf-8') as inventory:
+            csv_file = csv.DictReader(inventory)
