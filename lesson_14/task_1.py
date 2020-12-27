@@ -21,27 +21,32 @@
 # Тип продукта может быть только coffee или tea (нельзя создать обьект с другим типом).
 import csv
 
-class Product:
-    def __init__(self, name, product_type, price):
-        self.name = name
-        self.product_type = self._check_product_type(product_type)
-        self.price = float(price)
-
-    def _check_product_type(self, product_type):
-        if product_type == 'tea':
-            return 'tea'
-        if product_type == 'coffee':
-            return 'coffee'
-
-    def print_product(self):
-        print(self.name, self.product_type, self.price)
-
-
-class Store:
-    def __init__(self):
-        self.warehouse = self.import_product
-        self.transactions = []
-
-    def import_product(self):
-        with open('inventory.csv', 'r', encoding='utf-8') as inventory:
-            csv_file = csv.DictReader(inventory)
+#
+# class Product:
+#     def __init__(self, name, product_type, price):
+#         self.name = name
+#         self.product_type = self._check_product_type(product_type)
+#         self.price = float(price)
+#
+#     def _check_product_type(self, product_type):
+#         if product_type == 'tea':
+#             return 'tea'
+#         if product_type == 'coffee':
+#             return 'coffee'
+#
+#     def print_product(self):
+#         print(self.name, self.product_type, self.price)
+#
+#
+# class Store:
+#     def __init__(self):
+#         self.warehouse = self.import_product
+#         self.transactions = []
+#
+#     def import_product(self):
+#
+#
+with open('inventory.csv', 'r', encoding='utf-8') as inventory:
+    csv_reader = csv.reader(inventory)
+    for row in csv_reader:
+        print(",".join(row))
