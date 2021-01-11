@@ -40,10 +40,10 @@ class Product:
 
 class Store:
     def __init__(self):
-        self.warehouse = self.import_products()
+        self.warehouse = self.read_inventory()
         self.transactions = []
 
-    def import_products():
+    def read_inventory(self):
         with open('inventory.csv', 'r', encoding='utf-8') as inventory:
             csv_reader = csv.DictReader(inventory)
             result =[]
@@ -51,6 +51,17 @@ class Store:
                 result.append(row)
         print(result)
 
+    def move_to_warehouse(self):
+        with open('warehouse.csv', 'w', newline='') as warehouse:
+            fieldnames = ['Product', 'Quantity']
+            writer = csv.DictWriter(warehouse, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerow({'Product': '', 'Quantity': 5})
+            writer.writerow({'Product': '', 'Quantity': 5})
+            writer.writerow({'Product': '', 'Quantity': 5})
+            writer.writerow({'Product': '', 'Quantity': 5})
+            writer.writerow({'Product': '', 'Quantity': 5})
 
-mocco = Product('mocco', 'coffee', '35')
+
+mocco = Product('mocco', 'coffee', 35)
 print(mocco)
