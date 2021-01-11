@@ -18,11 +18,10 @@ def read_csv(file):
         csv_file = csv.DictReader(f, delimiter=';')
         result = []
         for row in csv_file:
-            for row in csv_file:
-                if row['BRAND'] == args_dict['brand'] and \
-                    row['COLOR'] == args_dict['color'] and \
-                        row['MAKE_YEAR']  == args_dict['year']:
-                    result.append(row)
+            if row['BRAND'] == args_dict['brand'] and \
+                row['COLOR'] == args_dict['color'] and \
+                    row['MAKE_YEAR'] == args_dict['year']:
+                result.append(row)
     return write_in_csv(result)
 
 
@@ -39,7 +38,7 @@ def write_in_csv(result):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Transport Registry')
-    parser.add_argument('o', help='Enter the file name incvs format')
+    parser.add_argument('o', help='Enter the file name in cvs format')
     parser.add_argument('--brand', help='Enter the brand')
     parser.add_argument('--color', help='Enter the color')
     parser.add_argument('--year', help='Enter the year make')
@@ -48,3 +47,5 @@ if __name__ == '__main__':
     arguments = parser.parse_args()
     args_dict = check_arguments(arguments)
     read_csv(arguments.o)
+
+read_csv(file='tz_opendata_z01012020_po01122020.csv')
