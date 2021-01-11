@@ -18,10 +18,11 @@ def read_csv(file):
         csv_file = csv.DictReader(f, delimiter=';')
         result = []
         for row in csv_file:
-            if row['BRAND'] == args_dict['brand'] and \
-                row['COLOR'] == args_dict['color'] and \
-                    row['MAKE_YEAR'] == args_dict['year']:
-                result.append(row)
+            for row in csv_file:
+                if row['BRAND'] == args_dict['brand'] and \
+                    row['COLOR'] == args_dict['color'] and \
+                        row['MAKE_YEAR'] == args_dict['year']:
+                    result.append(row)
     return write_in_csv(result)
 
 
@@ -30,7 +31,7 @@ def write_in_csv(result):
     with open(file_name, 'w', newline='') as cvsresult:
         headers = ['D_REG', 'BRAND', 'MODEL', 'MAKE_YEAR', 'COLOR',
                    'N_REG_NEW']
-        csv_writer = csv.DictReader(cvsresult, fieldnames=headers)
+        csv_writer = csv.DictWriter(cvsresult, fieldnames=headers)
         csv_writer.writeheader()
         csv_writer.writerows(result)
         print(f'Writed to {file_name}')
@@ -47,5 +48,3 @@ if __name__ == '__main__':
     arguments = parser.parse_args()
     args_dict = check_arguments(arguments)
     read_csv(arguments.o)
-
-read_csv(file='tz_opendata_z01012020_po01122020.csv')
