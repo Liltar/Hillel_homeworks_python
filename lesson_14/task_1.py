@@ -46,7 +46,7 @@ class Store:
     def read_inventory():
         with open('inventory.csv', 'r', encoding='utf-8') as inventory:
             csv_reader = csv.DictReader(inventory)
-            result =[]
+            result = []
             for row in csv_reader:
                 result.append(row)
         return result
@@ -62,6 +62,18 @@ class Store:
             writer.writerow({'Product': Store.read_inventory()[3], 'Quantity': 5})
             writer.writerow({'Product': Store.read_inventory()[4], 'Quantity': 5})
 
+    # def list_of_products_by_type(self, type):
+    #     with open('warehouse.csv', 'r', encoding='utf-8', newline='') as warehouse:
+    #         csv.reader = csv.DictReader(warehouse)
+    #         result = []
+    #         if
+    #
+
 
 print(Store.read_inventory()[0])
-Store.move_to_warehouse()
+first_element = Store.read_inventory()[0]
+print(first_element)
+for key, value in first_element.items():
+    print(key, value)
+
+# Store.move_to_warehouse()
