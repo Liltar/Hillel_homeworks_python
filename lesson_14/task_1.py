@@ -28,16 +28,14 @@ class Product:
         self.product_type = self._check_product_type(product_type)
         self.price = float(price)
 
+    def __repr__(self):
+        print(self.name, self.product_type, self.price)
+
     def _check_product_type(self, product_type):
         if product_type == 'tea':
             return 'tea'
         if product_type == 'coffee':
             return 'coffee'
-
-    def print_product(self):
-        print(self.name,
-              self.product_type,
-              self.price)
 
 
 class Store:
@@ -47,9 +45,12 @@ class Store:
 
     def import_products():
         with open('inventory.csv', 'r', encoding='utf-8') as inventory:
-            csv_reader = csv.reader(inventory)
+            csv_reader = csv.DictReader(inventory)
+            result =[]
             for row in csv_reader:
-                products = [value for value in row]
-                print(products)
+                result.append(row)
+        print(result)
 
-Store.import_products()
+
+mocco = Product('mocco', 'coffee', '35')
+print(mocco)
