@@ -43,25 +43,25 @@ class Store:
         self.warehouse = self.read_inventory()
         self.transactions = []
 
-    def read_inventory(self):
+    def read_inventory():
         with open('inventory.csv', 'r', encoding='utf-8') as inventory:
             csv_reader = csv.DictReader(inventory)
             result =[]
             for row in csv_reader:
                 result.append(row)
-        print(result)
+        return result
 
-    def move_to_warehouse(self):
-        with open('warehouse.csv', 'w', newline='') as warehouse:
+    def move_to_warehouse():
+        with open('warehouse.csv', 'w', encoding='utf-8', newline='') as warehouse:
             fieldnames = ['Product', 'Quantity']
             writer = csv.DictWriter(warehouse, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerow({'Product': '', 'Quantity': 5})
-            writer.writerow({'Product': '', 'Quantity': 5})
-            writer.writerow({'Product': '', 'Quantity': 5})
-            writer.writerow({'Product': '', 'Quantity': 5})
-            writer.writerow({'Product': '', 'Quantity': 5})
+            writer.writerow({'Product': Store.read_inventory()[0], 'Quantity': 5})
+            writer.writerow({'Product': Store.read_inventory()[1], 'Quantity': 5})
+            writer.writerow({'Product': Store.read_inventory()[2], 'Quantity': 5})
+            writer.writerow({'Product': Store.read_inventory()[3], 'Quantity': 5})
+            writer.writerow({'Product': Store.read_inventory()[4], 'Quantity': 5})
 
 
-mocco = Product('mocco', 'coffee', 35)
-print(mocco)
+print(Store.read_inventory()[0])
+Store.move_to_warehouse()
