@@ -21,15 +21,11 @@
 # Тип продукта может быть только coffee или tea (нельзя создать обьект с другим типом).
 import csv
 
-
 class Product:
     def __init__(self, name, product_type, price):
         self.name = name
         self.product_type = self._check_product_type(product_type)
         self.price = float(price)
-
-    def __repr__(self):
-        print(self.name, self.product_type, self.price)
 
     def _check_product_type(self, product_type):
         if product_type == 'tea':
@@ -37,43 +33,70 @@ class Product:
         if product_type == 'coffee':
             return 'coffee'
 
+    def print_product(self):
+        if self.product_type is not None:
+            print(f'{self.name}, {self.product_type}, {self.price} uah')
+        else:
+            pass
+
 
 class Store:
     def __init__(self):
-        self.warehouse = self.read_inventory()
+        self.warehouse = []
         self.transactions = []
 
-    def read_inventory():
+    def inventory(self):
         with open('inventory.csv', 'r', encoding='utf-8') as inventory:
-            csv_reader = csv.DictReader(inventory)
-            result = []
-            for row in csv_reader:
-                result.append(row)
-        return result
+            reader = csv.DictReader(inventory)
+            for row in reader:
+                self.add_product(row, 5)
 
-    def move_to_warehouse():
-        with open('warehouse.csv', 'w', encoding='utf-8', newline='') as warehouse:
-            fieldnames = ['Product', 'Quantity']
-            writer = csv.DictWriter(warehouse, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerow({'Product': Store.read_inventory()[0], 'Quantity': 5})
-            writer.writerow({'Product': Store.read_inventory()[1], 'Quantity': 5})
-            writer.writerow({'Product': Store.read_inventory()[2], 'Quantity': 5})
-            writer.writerow({'Product': Store.read_inventory()[3], 'Quantity': 5})
-            writer.writerow({'Product': Store.read_inventory()[4], 'Quantity': 5})
+    def add_product(self, row, quantity):
+        product = Product(row['Наименование'], row['Тип'], row['Цена'])
+        self.warehouse.extend([product] * quantity)
 
-    # def list_of_products_by_type(self, type):
-    #     with open('warehouse.csv', 'r', encoding='utf-8', newline='') as warehouse:
-    #         csv.reader = csv.DictReader(warehouse)
-    #         result = []
-    #         if
-    #
+    def print_products(self):
+        for products in self.warehouse:
+            products.print_product()
+
+# корректно не работает, выдаёт список вида [<__main__.Product object at 0x000001D25E628970>,
+    # <__main__.Product object at 0x000001D25E628970> и так далее]
+    def get_products_by_type(self, product_type):
+        products_filtered = []
+        for product in self.warehouse:
+            if product.product_type == product_type:
+                products_filtered.append(product)
+        print(products_filtered)
+
+    def total_cost(self):
+        cost = 0
+        for product in self.warehouse:
+            cost += product.price
+        return cost
+
+    def sell(self, product):
+        if product in self.warehouse:
+            self.warehouse.remove(product)
+            self.transactions.append(product)
+        else:
+            raise Exception('No way!')
+
+    def calc_revenue(self):
+        revenue = 0
+        for transaction in self.transactions:
+            revenue += transaction.price
+        return revenue
+
+    def add_new_product(self, product):
+        self.warehouse.append(product)
 
 
-print(Store.read_inventory()[0])
-first_element = Store.read_inventory()[0]
-print(first_element)
-for key, value in first_element.items():
-    print(key, value)
-
-# Store.move_to_warehouse()
+my_store = Store()
+my_store.inventory()
+print(my_store.total_cost())
+mokko = Product('Мокко', "coffee", 45.0)
+my_store.add_new_product(mokko)
+print(my_store.total_cost())
+my_store.sell(mokko)
+print(my_store.calc_revenue())
+my_store.get_products_by_type('coffee')
