@@ -18,11 +18,10 @@ def read_csv(file):
         csv_file = csv.DictReader(f, delimiter=';')
         result = []
         for row in csv_file:
-            for row in csv_file:
-                if row['BRAND'] == args_dict['brand'] and \
-                    row['COLOR'] == args_dict['color'] and \
-                        row['MAKE_YEAR'] == args_dict['year']:
-                    result.append(row)
+            if row['BRAND'] == args_dict['brand'] and \
+                row['COLOR'] == args_dict['color'] and \
+                    row['MAKE_YEAR'] == args_dict['year']:
+                result.append(row)
     return write_in_csv(result)
 
 
