@@ -14,6 +14,7 @@ import csv
 
 argument = 'ВН1010НС'
 
+
 def validate_number(argument):
     if len(argument) != 8 or type(argument[:2]) != str or type(argument[-2:]) != str:
         print(f'{argument} is not a number')
@@ -24,5 +25,6 @@ def validate_number(argument):
                 if row['Код 2004'] == argument[:2] or row['Код 2013'] == argument[:2]:
                     print(f'The {argument} is valid auto number and '
                           f'its region is {row["Регіон"]}')
+
 
 validate_number(argument)
