@@ -31,30 +31,81 @@
 #   IATA код может быть только 3х буквенным в верхнем регистре, сделать валидацию на него
 #
 #   или вернуть IATACodeError
+import csv
+import argparse
+import re
+
+class AirportNotFoundError(Exception):
+    def __init__(self, message, error_str):
+        self.message = 'Airport not found'
+        self.error_str = error_str
+
+    def __str__(self):
+        return 'Error' + self.message + self.error_str
+
+
+class CountryNotFoundError(Exception):
+    def __init__(self, message, error_str):
+        self.message = 'Country not found'
+        self.error_str = error_str
+
+    def __str__(self):
+        return 'Error' + self.message + self.error_str
+
+
+class MultipleOptionsError(Exception):
+    pass
+
+
+class NoOptionsFoundError(Exception):
+    pass
+
 
 class AirportFounder:
+
     def __init__(self, arguments):
         self.args = self.check_arguments(arguments)
-    def check_argument(self):
-        if len(arg_dict) == 1:
-            return arg_dict
-        elif len(arg_dict) > 1:
-            raise Exception('MultipleErrorsFound')
 
-import csv
-
-
-def print_first_element_from_csv():
-    with open('airport-codes_csv.csv', 'r', encoding='utf-8') as airport_codes:
-        csv_reader = csv.DictReader(airport_codes)
+    def check_argument(self, arguments):
+        arg_dict = [('name', arguments.name),
+                    ('country', arguments.country),
+                    ('iata_code', arguments.iata_code)]
         result = []
-        for row in csv_reader:
-            if row['iata_code'] == args_dict['iata_code']:
-                result.append(row)
-        first_element = result[0]
-        print(first_element)
-        # for key, value in first_element.items():
-        #     print(key, value)
+
+        for args in arg_dict:
+            if args[0] is not None:
+                result.append(args)
+
+        if len(result) == 1:
+            return result
+        elif len(result) > 1:
+            raise MultipleOptionsError
+        elif len(result) == 0:
+            raise NoOptionsFoundError
+
+    def find(self):
+        with open('airport-codes_csv.csv', 'r', encoding='utf-8') as airport_codes:
+            csv_reader = csv.DictReader(airport_codes)
+            result = []
+            row_header = next(csv_reader)
+            target_column = -1
+            for index, column_header in enumerate(row_header):
+                if column_header == self.args[0][0]:
+                    target_column = index
+            pattern = r"[\w\s]*{self.args[0][1]}[\w\s]*"
+            for row in csv_reader:
+                if re.fullmatch(pattern, row[target_column], flags=re.IGNORECASE):
+                    result.append(row)
+
+        if len(result) == 0:
+            raise Exception('Airport not found')
+
+        for r in result:
+            print(r)
 
 
-print_first_element_from_csv()
+parser = argparse.ArgumentParser(description='World Airports')
+parser.add_argument('--iata_code')
+parser.add_argument('--country')
+parser.add_argument('--name')
+arguments = parser.parse_args()
