@@ -33,12 +33,8 @@ class Product:
         if product_type == 'coffee':
             return 'coffee'
 
-    def print_product(self):
-        if self.product_type is not None:
-            print(f'{self.name}, {self.product_type}, {self.price} uah')
-        else:
-            pass
-
+    def __repr__(self):
+        return Product
 
 class Store:
     def __init__(self):
@@ -99,4 +95,4 @@ my_store.add_new_product(mokko)
 print(my_store.total_cost())
 my_store.sell(mokko)
 print(my_store.calc_revenue())
-my_store.get_products_by_type('coffee')
+# my_store.get_products_by_type('coffee')

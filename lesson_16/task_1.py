@@ -12,7 +12,7 @@
 # (для BI, AI, IA и т.д.)
 import csv
 
-argument = 'АР1010НС'
+argument = 'АС1010НС'
 
 
 def validate_number(argument):
