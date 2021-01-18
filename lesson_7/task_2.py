@@ -35,5 +35,3 @@ def temp_calc():
     if temper_type == 'K':
         print(kelvins())
 
-
-temp_calc()
