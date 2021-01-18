@@ -34,7 +34,8 @@ class Product:
             return 'coffee'
 
     def __repr__(self):
-        return Product
+        return f'Товар: {self.name}, цена: {str(self.price)} грн'
+
 
 class Store:
     def __init__(self):
@@ -55,8 +56,6 @@ class Store:
         for products in self.warehouse:
             products.print_product()
 
-# корректно не работает, выдаёт список вида [<__main__.Product object at 0x000001D25E628970>,
-    # <__main__.Product object at 0x000001D25E628970> и так далее]
     def get_products_by_type(self, product_type):
         products_filtered = []
         for product in self.warehouse:
@@ -91,8 +90,9 @@ my_store = Store()
 my_store.inventory()
 print(my_store.total_cost())
 mokko = Product('Мокко', "coffee", 45.0)
+print(mokko)
 my_store.add_new_product(mokko)
 print(my_store.total_cost())
 my_store.sell(mokko)
 print(my_store.calc_revenue())
-# my_store.get_products_by_type('coffee')
+my_store.get_products_by_type('coffee')
