@@ -17,4 +17,5 @@ def create_dict(*args: tuple) -> dict:
     return new_dict
 
 
-print(create_dict(coin, code))
+keys = tuple([key for key, value in create_dict(coin, code).items()])
+values = tuple([value for key, value in create_dict(coin, code).items()])
